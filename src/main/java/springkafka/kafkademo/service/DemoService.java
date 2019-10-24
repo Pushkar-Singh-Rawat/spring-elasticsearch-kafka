@@ -1,8 +1,8 @@
 package springkafka.kafkademo.service;
 
-import springkafka.kafkademo.messagemodel.MessageModel;
+import springkafka.kafkademo.model.Customer;
 
 public interface DemoService {
 
-	public void sendMessage(MessageModel message);
+	public void configureCustomerInfo(Customer customer);
 }

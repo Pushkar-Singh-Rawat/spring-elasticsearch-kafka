@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.MimeType;
 import org.springframework.util.MimeTypeUtils;
 
-import springkafka.kafkademo.messagemodel.MessageModel;
+import springkafka.kafkademo.model.Customer;
 import springkafka.kafkademo.service.DemoService;
 import springkafka.kafkademo.streams.KafkaStreamsDef;
 
@@ -19,10 +19,10 @@ public class DemoServiceImpl implements DemoService{
 	}
 
 	@Override
-	public void sendMessage(final MessageModel message) {
-		System.out.println("message: "+message.getSampleMessage());
+	public void configureCustomerInfo(final Customer customer) {
+		System.out.println("message: "+customer.getCustomerName());
 		MessageChannel messageChannel=kafkaStreamsDef.producerChannel();
-		messageChannel.send(MessageBuilder.withPayload(message).setHeader(MessageHeaders.CONTENT_TYPE, MimeTypeUtils.APPLICATION_JSON).build());
+		messageChannel.send(MessageBuilder.withPayload(customer).setHeader(MessageHeaders.CONTENT_TYPE, MimeTypeUtils.APPLICATION_JSON).build());
 	}
 
 	
