@@ -8,13 +8,13 @@ import org.springframework.util.MimeType;
 import org.springframework.util.MimeTypeUtils;
 
 import springkafka.kafkademo.model.Customer;
-import springkafka.kafkademo.service.DemoService;
+import springkafka.kafkademo.service.AddCustomerInfo;
 import springkafka.kafkademo.streams.KafkaStreamsDef;
 
 @Service
-public class DemoServiceImpl implements DemoService{
+public class AddCustomerInfoImpl implements AddCustomerInfo{
 	private final KafkaStreamsDef kafkaStreamsDef;
-    public DemoServiceImpl(KafkaStreamsDef kafkaStreamsDef) {
+    public AddCustomerInfoImpl(KafkaStreamsDef kafkaStreamsDef) {
 		this.kafkaStreamsDef=kafkaStreamsDef;
 	}
 

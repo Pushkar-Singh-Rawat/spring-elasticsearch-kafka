@@ -5,13 +5,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import springkafka.kafkademo.model.Customer;
-import springkafka.kafkademo.service.DemoService;
+import springkafka.kafkademo.service.AddCustomerInfo;
 
 @RestController
 public class MsController {
 
-	private DemoService demoService;
-	public MsController(DemoService demoService) {
+	private AddCustomerInfo demoService;
+	public MsController(AddCustomerInfo demoService) {
 		this.demoService=demoService;
 	}
 	

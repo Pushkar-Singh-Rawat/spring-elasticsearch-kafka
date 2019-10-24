@@ -2,7 +2,7 @@ package springkafka.kafkademo.service;
 
 import springkafka.kafkademo.model.Customer;
 
-public interface DemoService {
+public interface AddCustomerInfo {
 
 	public void configureCustomerInfo(Customer customer);
 }
