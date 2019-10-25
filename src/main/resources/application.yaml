@@ -12,11 +12,11 @@ spring:
           destination: demoMicroservice
           contentType: application/json
   data:
-     elasticsearch:
-       cluster-name: elasticsearch
-       cluster-nodes: localhost:9300
+    elasticsearch:
+      cluster-name: elasticsearch
+      cluster-nodes: localhost:9300
 server:
-  port: 8091
+  port: 8111
   
           
           
