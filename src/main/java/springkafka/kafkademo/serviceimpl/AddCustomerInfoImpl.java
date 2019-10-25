@@ -8,14 +8,17 @@ import org.springframework.util.MimeType;
 import org.springframework.util.MimeTypeUtils;
 
 import springkafka.kafkademo.model.Customer;
+import springkafka.kafkademo.persistence.CustomerRepository;
 import springkafka.kafkademo.service.AddCustomerInfo;
 import springkafka.kafkademo.streams.KafkaStreamsDef;
 
 @Service
 public class AddCustomerInfoImpl implements AddCustomerInfo{
 	private final KafkaStreamsDef kafkaStreamsDef;
+	
     public AddCustomerInfoImpl(KafkaStreamsDef kafkaStreamsDef) {
 		this.kafkaStreamsDef=kafkaStreamsDef;
+		
 	}
 
 	@Override
@@ -23,6 +26,7 @@ public class AddCustomerInfoImpl implements AddCustomerInfo{
 		System.out.println("message: "+customer.getCustomerName());
 		MessageChannel messageChannel=kafkaStreamsDef.producerChannel();
 		messageChannel.send(MessageBuilder.withPayload(customer).setHeader(MessageHeaders.CONTENT_TYPE, MimeTypeUtils.APPLICATION_JSON).build());
+	    
 	}
 
 	
