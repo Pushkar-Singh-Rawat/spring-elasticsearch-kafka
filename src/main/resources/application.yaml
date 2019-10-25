@@ -13,7 +13,7 @@ spring:
           contentType: application/json
   data:
      elasticsearch:
-       cluster-name: elastic-local-cluster
+       cluster-name: elasticsearch
        cluster-nodes: localhost:9300
 server:
   port: 8091

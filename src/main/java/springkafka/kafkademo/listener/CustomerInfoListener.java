@@ -8,11 +8,12 @@ import springkafka.kafkademo.model.Customer;
 import springkafka.kafkademo.streams.KafkaStreamsDef;
 
 @Component
-public class DemoListener {
+public class CustomerInfoListener {
 	
 	@StreamListener(KafkaStreamsDef.CONSUMER)
 	public void listenToKafkaEvent(@Payload Customer customer) {
 		System.out.println("the customer name is "+ customer.getCustomerName());
+		//save data to elasticsearch
 	}
 
 }
