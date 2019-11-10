@@ -1,8 +1,10 @@
 package springkafka.kafkademo.service;
 
+import org.springframework.http.ResponseEntity;
+
 import springkafka.kafkademo.model.Customer;
 
 public interface AddCustomerInfo {
 
-	public void configureCustomerInfo(Customer customer);
+	public Customer configureCustomerInfo(Customer customer);
 }

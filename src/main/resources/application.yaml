@@ -8,9 +8,11 @@ spring:
         consumer:
           destination: demoMicroservice
           contentType: application/json
+          group: customerGroupD1
         producer:
           destination: demoMicroservice
           contentType: application/json
+          group: customerGroupD1
   data:
     elasticsearch:
       cluster-name: elasticsearch

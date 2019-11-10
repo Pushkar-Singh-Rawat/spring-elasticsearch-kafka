@@ -18,8 +18,12 @@ public class CustomerInfoListener {
 	@StreamListener(KafkaStreamsDef.CONSUMER)
 	public void listenToKafkaEvent(@Payload Customer customer) {
 		System.out.println("the customer name is "+ customer.getCustomerName());
+		try {
 		customerRepository.save(customer);
-		
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }

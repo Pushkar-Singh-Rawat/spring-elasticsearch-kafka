@@ -1,6 +1,8 @@
 package springkafka.kafkademo.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -8,18 +10,22 @@ import springkafka.kafkademo.model.Customer;
 import springkafka.kafkademo.service.AddCustomerInfo;
 
 @RestController
+@RequestMapping("/v1/customer/")
 public class MsController {
 
-	private AddCustomerInfo demoService;
+	private AddCustomerInfo addCustomerService;
 	public MsController(AddCustomerInfo demoService) {
-		this.demoService=demoService;
+		this.addCustomerService=demoService;
 	}
 	
-	@GetMapping("/v1/customer/info")
-	public void setCustomerInfo(@RequestParam("name") String name,@RequestParam("id") String id) {
+	
+	@PostMapping("info/add")
+	public Customer setCustomerInfo(@RequestParam("name") String name,@RequestParam("id") String id) {
 		Customer customer=new Customer();
 		customer.setId(id);
 		customer.setCustomerName(name);
-		demoService.configureCustomerInfo(customer);
+		return addCustomerService.configureCustomerInfo(customer);
 	}
+	
+   
 }
